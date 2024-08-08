@@ -1,0 +1,51 @@
+body{
+    background-color: #FFFAF5 !important;
+}
+.navbar{
+    background-color: #FFFAF5;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.nav-link{
+    font-size: 18px;
+}
+/* section-1 */
+.sec-1 div, .sec-3 div{
+    margin: 15px 2px;
+    /* border: 2px solid black;
+    height: 300px; */
+    width: 49%;
+    border-radius: 8px;
+}
+.sec-1Text{
+    background-color: #E45834;
+}
+
+.bgImg, .bookTable{
+    height: 100%;
+    width: 100%;
+    background-position: center center;
+    border-radius: 8px;
+}
+
+/* section-2 */
+/* .sec-2 div{
+     padding: 5px 25px;
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bolder; 
+} */
+
+.card{
+    background-color: #e7caad !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* section-3 */
+.sec-3{
+    border: 1px solid gray;
+}
+
+
+
