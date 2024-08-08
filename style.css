@@ -46,6 +46,16 @@ body{
 .sec-3{
     border: 1px solid gray;
 }
+.sec-3{
+    border-top-left-radius: 27px !important;
+    border-bottom-left-radius: 27px !important;
+}
 
 
-
+.dish div{
+    border: 2px solid;
+     height: 300px;
+}
+.fa-bag-shopping{
+    font-size: 25px;
+}
