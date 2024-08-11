@@ -58,4 +58,30 @@ body{
 }
 .fa-bag-shopping{
     font-size: 25px;
+    cursor: pointer;
+}
+.loader{
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    display: none;
+}
+.spinner{
+    display: none;
+}
+#orderCount{
+    text-align: center !important;
+    font-size: 18px;
+    height: 26px;
+    width: 28px;
+    border-radius: 5px;
+    background-color: red !important;
+    position: absolute !important;
+    top: 1px;
+    right: 4px;
+    color: white;
+    font-weight: 700;
+    display: none;
+    border: none;
+    padding: 0px;
 }
