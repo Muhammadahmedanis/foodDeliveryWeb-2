@@ -85,3 +85,6 @@ body{
     border: none;
     padding: 0px;
 }
+.userDetailDiv{
+    display: none;
+}

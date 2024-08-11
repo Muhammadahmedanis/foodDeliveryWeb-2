@@ -55,26 +55,30 @@ const getAllDishes = async() => {
 getAllDishes();
 let orderCount = document.getElementById("orderCount");
 let orderCart = document.getElementById("orderCart");
-let i = 0;
+let i = JSON.parse(localStorage.getItem("orderCount")) || 0; // Initialize 'i' from localStorage if it exists
+
 let addToCart = async(id) => {
+    // console.log(id);
     orderCount.style.display = "block";
     i++;
-    localStorage.setItem("count", JSON.stringify(i));
     orderCount.innerHTML = i;
-    // console.log(id);
+    
+    // Store the updated order count in localStorage
+    localStorage.setItem("orderCount", JSON.stringify(i));
+
     for(let key of dishes){
         const docRef = await addDoc(collection(db, "orders"), {
             name: key.name,
             img: key.img,
             price: key.price,
-          });
+        });
         break;
     }
     localStorage.setItem("order", JSON.stringify(dishes));
-    getOrder()
+    getOrder();
 }
-let getOrder = () => {
 
+let getOrder = () => {
     let a = JSON.parse(localStorage.getItem("order")) || [];
     console.log(a);
     a.map((val) => {
@@ -90,7 +94,50 @@ let getOrder = () => {
                 </div>
                 </div>`
                 // <p class="card-text">Serves ${serving}</p>
-    })
+    });
 }
+getOrder()
+// Display the current order count on page load
+orderCount.style.display = i > 0 ? "block" : "none";
+orderCount.innerHTML = i;
 
 window.addToCart = addToCart
+
+let user = () => {
+    let userDetail = document.querySelector(".userDetailDiv");
+    userDetail.style.display = "block";
+}
+
+let userOrder = document.getElementById("userOrder");
+userOrder && userOrder.addEventListener("click", user)
+
+let Submit = async() => {
+    let userName = document.getElementById("userName");
+    let userAddress = document.getElementById("userAddress");
+    let userContact = document.getElementById("userContact");
+    const docRef = await addDoc(collection(db, "orderDetails"), {
+        name: userName.value,
+        address: userAddress.value,
+        contact: userContact.value,
+      });
+      console.log("Document written with ID: ", docRef.id);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your order has been booked",
+        showConfirmButton: false,
+        timer: 3000,
+    });
+    setTimeout(() => {
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your order is on thw way",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }, 5000)
+      
+}
+let submitOrder = document.getElementById("submitOrder");
+submitOrder && submitOrder.addEventListener("click", Submit)
