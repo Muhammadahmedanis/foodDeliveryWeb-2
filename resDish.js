@@ -66,14 +66,7 @@ let addToCart = async(id) => {
     // Store the updated order count in localStorage
     localStorage.setItem("orderCount", JSON.stringify(i));
 
-    for(let key of dishes){
-        const docRef = await addDoc(collection(db, "orders"), {
-            name: key.name,
-            img: key.img,
-            price: key.price,
-        });
-        break;
-    }
+   
     localStorage.setItem("order", JSON.stringify(dishes));
     getOrder();
 }
@@ -115,12 +108,20 @@ let Submit = async() => {
     let userName = document.getElementById("userName");
     let userAddress = document.getElementById("userAddress");
     let userContact = document.getElementById("userContact");
-    const docRef = await addDoc(collection(db, "orderDetails"), {
-        name: userName.value,
-        address: userAddress.value,
-        contact: userContact.value,
-      });
-      console.log("Document written with ID: ", docRef.id);
+     for(let key of dishes){
+        const docRef = await addDoc(collection(db, "orders"), {
+            name: key.name,
+            img: key.img,
+            price: key.price,
+            res: key.resturant,
+            user: userName.value,
+            address: userAddress.value,
+            contact: userContact.value,
+            status: "pending",
+        })
+        console.log("Document written with ID: ", docRef.id);
+        break;
+    }
       Swal.fire({
         position: "center",
         icon: "success",

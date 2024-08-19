@@ -1,4 +1,78 @@
-import {db, addDoc, collection, getDocs} from './firebase.js'
+import {db, addDoc, collection, getDocs, createUserWithEmailAndPassword, auth, onAuthStateChanged, signOut, signInWithEmailAndPassword, } from './firebase.js'
+
+document.getElementById('signin').onclick = function() {
+  // Close the current modal
+  var loginModal = bootstrap.Modal.getInstance(document.getElementById('staticBackdrop'));
+  loginModal.hide();
+
+  // Wait until the modal is hidden, then show the new modal
+  document.getElementById('staticBackdrop').addEventListener('hidden.bs.modal', function () {
+    var signinModal = new bootstrap.Modal(document.getElementById('newModal'));
+    signinModal.show();
+  }, { once: true });
+};
+
+
+
+
+let Login = () => {
+    let emailInp = document.getElementById("emailInp");
+    let passInp = document.getElementById("passInp");
+
+    createUserWithEmailAndPassword(auth, emailInp.value, passInp.value)
+    .then((userCredential) => {
+    const user = userCredential.user;
+    console.log("Login Suessfully", user);
+    alert("Login Suessfully");
+  })
+  .catch((error) => {
+    console.log("Error in login:-", error);
+  });
+}
+
+let loginBtn = document.getElementById("loginBtn");
+loginBtn && loginBtn.addEventListener("click", Login)
+
+let logoutBtn = document.getElementById("logoutBtn");
+let login = document.getElementById("Login");
+
+let Signin = () => {
+  let signinEmail = document.getElementById("signinEmail");
+  let signinPass = document.getElementById("signinPass");
+
+  signInWithEmailAndPassword(auth, signinEmail.value, signinPass.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log("user");
+  })
+  .catch((error) => {
+   console.log("error", error);
+  });
+}
+
+let signinBtn = document.getElementById("signinBtn");
+signinBtn && signinBtn.addEventListener("click", Signin)
+
+
+
+let Logout = () => {
+  signOut(auth).then(() => {
+    console.log("Sign-out successful.");
+    logoutBtn.style.display = "none";
+    login.style.display ="block";
+    let users = document.querySelector(".user");
+    let userAccess = document.querySelector(".userAccess");
+        userAccess.style.display = "none";
+        users.style.display = "flex";
+  }).catch((error) => {
+    console.log("error in logout", error);
+  });
+}
+
+logoutBtn && logoutBtn.addEventListener("click", Logout)
+
+
 
 let Book = async() => {
     let reserveName = document.getElementById("resereName");
@@ -25,6 +99,24 @@ let Book = async() => {
 let bookTableBtn = document.getElementById("bookTableBtn");
 bookTableBtn && bookTableBtn.addEventListener("click", Book);
 
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // const uid = user.uid;
+    bookTableBtn.disabled = false;
+    login.style.display = "none";
+    logoutBtn.style.display = "block";
+    if(user.email === "admin@gmail.com"){
+    let users = document.querySelector(".user");
+    let userAccess = document.querySelector(".userAccess");
+        userAccess.style.display = "flex";
+        users.style.display = "none";
+      }
+    console.log(user);
+  } else {
+    console.log("logout");
+  }
+});
 
 
 const getAllRestaurants = async() =>{

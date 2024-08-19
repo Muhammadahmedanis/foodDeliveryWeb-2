@@ -17,7 +17,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-bold">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-bold userAccess">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
@@ -27,13 +27,94 @@
               <li class="nav-item">
                 <a class="nav-link" href="#resereTable">Reservation</a>
               </li>
-            </ul>
+                <li class="nav-item">
+                  <a class="nav-link" href="resturant.html">Resturant</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="dishe.html">Dishes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="order.html">Orders</a>
+                </li>
+              </ul>
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-bold user">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#resturants">Resturants</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#resereTable">Reservation</a>
+              </li>
+              </ul>
             <div class="d-flex gap-2" role="search">
-              <button class="btn btn-outline-success px-4" type="submit">Login</button>
+              <button id="Login" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-outline-success px-4">Login</button>
+              <button id="logoutBtn" class="px-4">Logout</button>
             </div>
           </div>
         </div>
       </nav>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Signup Form</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" id="" placeholder="Ali">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-control" id="emailInp" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="text" class="form-control" id="passInp" placeholder="A12789$">
+            </div>
+            <div class="form-text">
+              Already have an account?
+              <button id="signin" type="button" class="btn btn-outline-success ms-2 py-0">Signin</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="loginBtn" type="button" class="btn btn-success" data-bs-dismiss="modal">Login</button>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    
+      <!-- New Modal -->
+      <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="newModalLabel">Signin Form</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" id="signinEmail" placeholder="name@example.com">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="text" class="form-control" id="signinPass" placeholder="A12789$">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="signinBtn" type="button" class="btn btn-success" data-bs-dismiss="modal">Signin</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <section>
         <div class="d-flex justify-content-center flex-wrap sec-1">
@@ -49,7 +130,7 @@
     </section>
 
     <section id="resturants">
-        <div class="sec-2 gap-4 d-flex m-3 c">
+        <div class="sec-2 gap-4 d-flex flex-wrap justify-content-center my-4 c">
           
         </div>
     </section>
@@ -76,7 +157,7 @@
                     <label class="form-label">People</label>
                     <input type="number" class="form-control" id="reserePersons" placeholder="Enter number people">
                 </div>
-                <button type="submit" id="bookTableBtn" class="btn btn-success mb-3 px-5 mx-5 fw-bold">Book a table</button>
+                <button type="submit" id="bookTableBtn" disabled class="btn btn-success mb-3 px-5 mx-5 fw-bold">Book a table</button>
             </div>
         </div>
     </section>
