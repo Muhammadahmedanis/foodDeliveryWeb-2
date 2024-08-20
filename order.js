@@ -20,10 +20,8 @@ let order = async() => {
         <td>${doc.data().user}</td>
         <td>${doc.data().name}</td>
         <td><img height="65" width="95" class="resLogoImg" src='${doc.data().img}' alt=""></td>
-        <td>${doc.data().price} Rs</td>
-        <td></td>
+        <td>Rs.${doc.data().price}</td>
         </tr>`
-        // <td><img height="65" width="95" class="resLogoImg" src='${doc.data().img}' alt=""></td>
     });
 }
 }

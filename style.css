@@ -53,16 +53,6 @@ footer{
 }
 
 
-/* section-2 */
-/* .sec-2 div{
-     padding: 5px 25px;
-    border: 1px solid black;
-    height: 40px;
-    border-radius: 8px;
-    font-size: 17px;
-    font-weight: bolder; 
-} */
-
 .card{
     background-color: #e7caad !important;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -147,7 +137,6 @@ a{
     text-decoration: none;
 }
 .footImg{
-    /* border: 2px solid black; */
     height: 100px;
     width: 120px;
     padding: 5px;
