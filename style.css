@@ -1,6 +1,12 @@
 body{
     background-color: #FFFAF5 !important;
 }
+footer{
+    background-color: #b5783b !important;
+}
+.fa-brands{
+    font-size: 26px !important;
+}
 .navbar{
     background-color: #FFFAF5;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -131,4 +137,17 @@ body{
 }
 #logoutBtn{
     display: none;
+}
+a{
+    text-decoration: none;
+}
+.footImg{
+    /* border: 2px solid black; */
+    height: 100px;
+    width: 120px;
+    padding: 5px;
+}
+.img1{
+    height: 100%;
+    width: 100%;
 }
