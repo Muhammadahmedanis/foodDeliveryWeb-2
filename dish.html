@@ -8,35 +8,34 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <img width="100" src="./images/logo.png" alt="">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="ms-3 nav nav-pills">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="resturant.html">Resturant</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Dishes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="order.html">Orders</a>
-                </li>
-              </ul>
-            
-              <div class="d-flex gap-2" role="search">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Add new dish </button>
-              </div>
-            </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <img width="100" src="./images/logo.png" alt="">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="resturant.html">Resturant</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Dishes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order.html">Orders</a>
+          </li>
+        </ul>
+        <div class="d-flex" role="search">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add new dish </button>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -86,10 +85,10 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Res Name</th>
-            <th scope="col">Dish Img</th>
-            <th scope="col">Dish Name</th>
-            <th scope="col">Dish Price</th>
+            <th scope="col">Resturant</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
           </tr>
         </thead>
         <tbody id="dishList">

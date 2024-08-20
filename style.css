@@ -14,7 +14,7 @@ footer{
 .nav-link{
     font-size: 18px;
 }
-#Login, #signin{
+#Login, #signin, #logoutBtn{
     border-color: #e45834;
     color: #E45834;
 }
@@ -45,6 +45,13 @@ footer{
     background-position: center center;
     border-radius: 8px;
 }
+@media (max-width: 600px) {   
+    .sec-2{
+        justify-content: center !important;
+        margin-left: 0px !important;
+    }
+}
+
 
 /* section-2 */
 /* .sec-2 div{
@@ -69,8 +76,6 @@ footer{
     border-top-left-radius: 27px !important;
     border-bottom-left-radius: 27px !important;
 }
-
-
 .table-responsive {
     overflow-x: auto;
 }
@@ -78,7 +83,7 @@ footer{
     height: 8px;
 }
 .table-responsive::-webkit-scrollbar-thumb {
-    background: #007bff;
+    background: gray;
     border-radius: 10px;
 }
 .table-responsive::-webkit-scrollbar-track {
