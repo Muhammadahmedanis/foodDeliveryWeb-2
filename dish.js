@@ -52,6 +52,7 @@ const getAllDishes = async() => {
     let dishList = document.getElementById("dishList");
     let spinner = document.querySelector(".spinner");
     if(dishList){
+    dishList.innerHTML = '';
     spinner.style.display = "block";
     let ind = 0;
     const q = collection(db, "dishes");

@@ -49,11 +49,14 @@ let Signin = () => {
   .catch((error) => {
    console.log("error", error);
   });
+  signinEmail.value = '';
+  signinPass.value = '';
 }
 
 let signinBtn = document.getElementById("signinBtn");
 signinBtn && signinBtn.addEventListener("click", Signin)
 
+let bookTableBtn = document.getElementById("bookTableBtn");
 
 
 let Logout = () => {
@@ -65,6 +68,7 @@ let Logout = () => {
     let userAccess = document.querySelector(".userAccess");
         userAccess.style.display = "none";
         users.style.display = "flex";
+        bookTableBtn.disabled = true;
   }).catch((error) => {
     console.log("error in logout", error);
   });
@@ -73,7 +77,7 @@ let Logout = () => {
 logoutBtn && logoutBtn.addEventListener("click", Logout)
 
 
-
+// Book a Table
 let Book = async() => {
     let reserveName = document.getElementById("resereName");
     let reserveDate = document.getElementById("resereDate");
@@ -94,9 +98,13 @@ let Book = async() => {
         showConfirmButton: false,
         timer: 3000,
     });
+    reserveName.value = '';
+    reservePersons.value = '';
+    reserveTime.value = '';
+    reserveDate.value = '';
+    reserveDate.value = '';
 
 }
-let bookTableBtn = document.getElementById("bookTableBtn");
 bookTableBtn && bookTableBtn.addEventListener("click", Book);
 
 

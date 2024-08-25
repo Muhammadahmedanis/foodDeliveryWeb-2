@@ -1,5 +1,6 @@
-import {storage, ref, uploadBytesResumable, getDownloadURL, addDoc, db, collection, getDocs} from './firebase.js'
+import {storage, ref, uploadBytesResumable, getDownloadURL, addDoc, db, collection, getDocs, deleteDoc, doc} from './firebase.js'
 
+resList.innerHTML = '';
 let uploadFile = async(resImg) => {
     return new Promise((resolve, reject) => {
 
@@ -9,8 +10,8 @@ const uploadTask = uploadBytesResumable(storageRef, file);
 
 uploadTask.on('state_changed', 
   (snapshot) => {
-    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     console.log('Upload is ' + progress + '% done');
+    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     switch (snapshot.state) {
       case 'paused':
         console.log('Upload is paused');
@@ -40,19 +41,21 @@ const getAllRestaurants = async() => {
     let ind = 0;
     const q = collection(db, "resturants");
     const querySnapshot = await getDocs(q);
+    if(resList){
+    resList.innerHTML = '';
     querySnapshot.forEach((doc) => {
         ind++;
         console.log(doc.id, " => ", doc.data());
-        if(resList){
-            resList.innerHTML += `<tr>
+            resList.innerHTML += `<tr id = "${doc.id}">
             <th scope="row">${ind}</th>
             <td><img height="65" width="95" class="resLogoImg" src='${doc.data().img}' alt=""></td>
             <td>${doc.data().name}</td>
             <td>${doc.data().rev}</td>
+            <td><i onclick = "delFunc('${doc.id}')" class="fa-solid fa-trash ms-3"></i></td>
             </tr>`
             spinner.style.display = "none";
+          });
         }
-    });
 }
 getAllRestaurants();
 
@@ -88,3 +91,24 @@ try {
 
 let addRes = document.getElementById("addRes");
 addRes.addEventListener("click", Add)
+
+async function delFunc(resId) {
+  let resList = document.getElementById("resList");
+  let rows = resList.getElementsByTagName("tr")
+  // resList.innerHTML = ''
+  for(let i = 0; i < rows.length; i++){
+    if(rows[i].id === resId){
+      // console.log(rows[i]);
+      rows[i].innerHTML = '';
+      await deleteDoc(doc(db, "resturants", resId));
+      break;
+    }
+  }
+  
+  
+  // console.log(rows[i].id === resId);
+  // console.log(resId);
+  
+}
+
+window.delFunc = delFunc;
