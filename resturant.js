@@ -95,19 +95,13 @@ addRes.addEventListener("click", Add)
 async function delFunc(resId) {
   let resList = document.getElementById("resList");
   let rows = resList.getElementsByTagName("tr")
-  // resList.innerHTML = ''
   for(let i = 0; i < rows.length; i++){
     if(rows[i].id === resId){
-      // console.log(rows[i]);
       rows[i].innerHTML = '';
       await deleteDoc(doc(db, "resturants", resId));
       break;
     }
   }
-  
-  
-  // console.log(rows[i].id === resId);
-  // console.log(resId);
   
 }
 
